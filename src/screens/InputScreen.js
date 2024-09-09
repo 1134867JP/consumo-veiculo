@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
+  ScrollView
 } from "react-native";
 
 export default function InputScreen({ navigation }) {
@@ -36,65 +37,76 @@ export default function InputScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.label}>Quilometragem Percorrida (Km):</Text>
       <TextInput
-        style={[styles.input, styles.shadow]}
+        style={styles.input}
         keyboardType="numeric"
         value={km}
         onChangeText={setKm}
+        placeholder="Ex: 150"
+        placeholderTextColor="#888"
       />
       <Text style={styles.label}>Litros de Gasolina Consumidos:</Text>
       <TextInput
-        style={[styles.input, styles.shadow]}
+        style={styles.input}
         keyboardType="numeric"
         value={litros}
         onChangeText={setLitros}
+        placeholder="Ex: 10"
+        placeholderTextColor="#888"
       />
       <TouchableOpacity style={styles.button} onPress={handleCalculate}>
         <Text style={styles.buttonText}>Calcular</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
-    padding: 16,
+    padding: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 20,
+    textAlign: "center",
   },
   label: {
     fontSize: 16,
     marginBottom: 8,
+    color: "#555",
   },
   input: {
-    height: 40,
-    borderColor: "gray",
+    height: 50,
+    borderColor: "#ccc",
     borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-  shadow: {
+    borderRadius: 10,
+    marginBottom: 20,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    backgroundColor: "#fff",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 2,
   },
   button: {
-    backgroundColor: "green",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: "#4CAF50",
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignItems: "center",
     marginTop: 20,
   },
   buttonText: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 16,
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });

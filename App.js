@@ -13,12 +13,12 @@ export default function App() {
         <Stack.Screen
           name="Input"
           component={InputScreen}
-          options={{ title: "Calcular Consumo" }}
+          options={{ title: "Calcular Média de Consumo" }}
         />
         <Stack.Screen
           name="Resultado"
           component={ResultScreen}
-          options={{ title: "Resultado" }}
+          options={{ title: "Resultado da Média" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
